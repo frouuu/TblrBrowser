@@ -8,10 +8,11 @@
 
 #import "TableViewController.h"
 #import "BasicTableViewCell.h"
+#import "Post.h"
 
 
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-#define kBlogFormatString @"http://%@.tumblr.com/api/read/json?start=0&num=5"
+#define kBlogFormatString @"http://%@.tumblr.com/api/read/json?start=0&num=10"
 
 
 @interface TableViewController ()
@@ -27,8 +28,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.tableView.estimatedRowHeight = 100.0;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
     dispatch_async(kBgQueue, ^{
-        NSData* data = [NSData dataWithContentsOfURL:[self blogUrlWithUser:@"demo"]];
+        NSData* data = [NSData dataWithContentsOfURL:[self blogUrlWithUser:@"instagram"]];
         
         [self performSelectorOnMainThread:@selector(fetchedData:)
                                withObject:data
@@ -62,7 +66,7 @@
                                       reuseIdentifier:CellIdentifier];
     }
     
-    [cell configureWithData:[self.posts objectAtIndex:indexPath.row]];
+    [cell configureWithPost:(Post*)[self.posts objectAtIndex:indexPath.row]];
     
     return cell;
 }
@@ -120,7 +124,11 @@
                           options:NSJSONReadingAllowFragments
                           error:&error];
     
-    self.posts = [json objectForKey:@"posts"];
+    NSMutableArray* mutablePosts = [NSMutableArray array];
+    for (NSDictionary* postData in [json objectForKey:@"posts"]) {
+        [mutablePosts addObject:[[Post alloc] initWithDictionary:postData]];
+    }
+    self.posts = [mutablePosts copy];
     
     [self.tableView reloadData];
 }

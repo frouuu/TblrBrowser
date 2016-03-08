@@ -15,38 +15,51 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BasicCell" rowHeight="100" id="p0R-QM-ou7" customClass="BasicTableViewCell">
-                                <rect key="frame" x="0.0" y="92" width="600" height="100"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BasicCell" rowHeight="130" id="p0R-QM-ou7" customClass="BasicTableViewCell">
+                                <rect key="frame" x="0.0" y="92" width="600" height="130"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="p0R-QM-ou7" id="oKi-2v-LGa">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="129"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ACS-a2-XSI">
-                                            <rect key="frame" x="18" y="8" width="564" height="57"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ACS-a2-XSI">
+                                            <rect key="frame" x="18" y="8" width="564" height="87"/>
+                                            <color key="backgroundColor" red="0.83827761748791429" green="0.86576007710517289" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="87" id="hiH-q2-FcK"/>
+                                            </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tags" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gap-BM-frv">
-                                            <rect key="frame" x="18" y="70" width="564" height="21"/>
+                                            <rect key="frame" x="18" y="100" width="564" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="cbf-qA-yeS"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                            <color key="textColor" red="0.58444977135067544" green="0.63614211585355729" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.055262734765226598" green="0.012720441413903607" blue="0.20954679319371727" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
+                                        <constraint firstItem="ACS-a2-XSI" firstAttribute="top" secondItem="oKi-2v-LGa" secondAttribute="topMargin" id="0Ii-qM-Mph"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="ACS-a2-XSI" secondAttribute="trailing" constant="10" id="1A1-Te-BmS"/>
+                                        <constraint firstItem="gap-BM-frv" firstAttribute="top" secondItem="ACS-a2-XSI" secondAttribute="bottom" constant="5" id="1fh-qf-rcv"/>
                                         <constraint firstItem="gap-BM-frv" firstAttribute="leading" secondItem="oKi-2v-LGa" secondAttribute="leadingMargin" constant="10" id="8pd-ke-WfJ"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="gap-BM-frv" secondAttribute="trailing" constant="10" id="Jhd-1q-DoS"/>
                                         <constraint firstItem="ACS-a2-XSI" firstAttribute="leading" secondItem="oKi-2v-LGa" secondAttribute="leadingMargin" constant="10" id="MAn-Pb-VbA"/>
                                         <constraint firstItem="ACS-a2-XSI" firstAttribute="top" secondItem="oKi-2v-LGa" secondAttribute="topMargin" id="YVO-1C-e3N"/>
                                         <constraint firstItem="gap-BM-frv" firstAttribute="bottom" secondItem="oKi-2v-LGa" secondAttribute="bottomMargin" id="ik5-zI-OvI"/>
+                                        <constraint firstItem="gap-BM-frv" firstAttribute="top" secondItem="ACS-a2-XSI" secondAttribute="bottom" constant="5" id="zYu-ED-aiu"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="0Ii-qM-Mph"/>
+                                            <exclude reference="1fh-qf-rcv"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="postContentView" destination="ACS-a2-XSI" id="fRJ-Ci-lDt"/>
                                     <outlet property="tagsLabel" destination="gap-BM-frv" id="TrR-cP-JiE"/>
                                 </connections>
                             </tableViewCell>

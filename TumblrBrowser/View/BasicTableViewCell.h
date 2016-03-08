@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class Post;
+
+
 @interface BasicTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *tagsLabel;
+@property (weak, nonatomic) IBOutlet UIView *postContentView;
 
-- (void)configureWithData:(NSDictionary*)postData;
+- (void)configureWithPost:(Post*)post;
 
 @end
