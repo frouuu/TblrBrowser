@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E360E8E1C8DA57B0042DBA3 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E360E8D1C8DA57B0042DBA3 /* TableViewController.m */; };
+		3E360E8F1C8DA57B0042DBA3 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E360E8D1C8DA57B0042DBA3 /* TableViewController.m */; };
+		3E360E921C8DC0300042DBA3 /* BasicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E360E911C8DC0300042DBA3 /* BasicTableViewCell.m */; };
+		3E360E931C8DC0300042DBA3 /* BasicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E360E911C8DC0300042DBA3 /* BasicTableViewCell.m */; };
 		3E99F9F81C8D982C001C923E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E99F9F71C8D982C001C923E /* main.m */; };
 		3E99F9FB1C8D982C001C923E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E99F9FA1C8D982C001C923E /* AppDelegate.m */; };
 		3E99F9FE1C8D982C001C923E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E99F9FD1C8D982C001C923E /* ViewController.m */; };
@@ -27,6 +31,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E360E8C1C8DA57B0042DBA3 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		3E360E8D1C8DA57B0042DBA3 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		3E360E901C8DC0300042DBA3 /* BasicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicTableViewCell.h; sourceTree = "<group>"; };
+		3E360E911C8DC0300042DBA3 /* BasicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicTableViewCell.m; sourceTree = "<group>"; };
 		3E99F9F31C8D982C001C923E /* TumblrBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TumblrBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E99F9F71C8D982C001C923E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3E99F9F91C8D982C001C923E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -90,6 +98,10 @@
 				3E99FA041C8D982C001C923E /* LaunchScreen.storyboard */,
 				3E99FA071C8D982C001C923E /* Info.plist */,
 				3E99F9F61C8D982C001C923E /* Supporting Files */,
+				3E360E8C1C8DA57B0042DBA3 /* TableViewController.h */,
+				3E360E8D1C8DA57B0042DBA3 /* TableViewController.m */,
+				3E360E901C8DC0300042DBA3 /* BasicTableViewCell.h */,
+				3E360E911C8DC0300042DBA3 /* BasicTableViewCell.m */,
 			);
 			path = TumblrBrowser;
 			sourceTree = "<group>";
@@ -214,6 +226,8 @@
 				3E99F9FE1C8D982C001C923E /* ViewController.m in Sources */,
 				3E99F9FB1C8D982C001C923E /* AppDelegate.m in Sources */,
 				3E99F9F81C8D982C001C923E /* main.m in Sources */,
+				3E360E8E1C8DA57B0042DBA3 /* TableViewController.m in Sources */,
+				3E360E921C8DC0300042DBA3 /* BasicTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,6 +236,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E99FA111C8D982C001C923E /* TumblrBrowserTests.m in Sources */,
+				3E360E931C8DC0300042DBA3 /* BasicTableViewCell.m in Sources */,
+				3E360E8F1C8DA57B0042DBA3 /* TableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,9 +358,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TumblrBrowser/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = magdalena.lazarecka.com.TumblrBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -353,9 +371,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TumblrBrowser/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = magdalena.lazarecka.com.TumblrBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -402,6 +422,7 @@
 				3E99FA171C8D982C001C923E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3E99FA181C8D982C001C923E /* Build configuration list for PBXNativeTarget "TumblrBrowserTests" */ = {
 			isa = XCConfigurationList;
@@ -410,6 +431,7 @@
 				3E99FA1A1C8D982C001C923E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
