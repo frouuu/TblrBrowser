@@ -10,9 +10,10 @@
 
 @interface Photo : NSObject
 
-@property (nonatomic, strong) NSURL* url;
+@property (nonatomic, strong) NSDictionary* urlsBySize;
 @property (nonatomic) NSUInteger width;
+@property (nonatomic) NSUInteger height;
 
-- (id)initWithUrl:(NSURL*)url andWidth:(NSUInteger)width;
+- (id)initWithUrls:(NSDictionary*)urls width:(NSUInteger)width height:(NSUInteger)height;
 
 @end

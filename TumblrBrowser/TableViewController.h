@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class Post;
+
 @interface TableViewController : UITableViewController
 
 @property (nonatomic, strong) NSArray* posts;

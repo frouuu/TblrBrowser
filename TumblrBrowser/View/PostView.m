@@ -11,7 +11,7 @@
 @implementation PostView
 
 - (void)configureWithPost:(Post*)post {
-    self.backgroundColor = [UIColor redColor];
+    
 }
 
 @end

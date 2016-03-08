@@ -27,6 +27,8 @@
 		3E588C531C8F03F6006F6E93 /* PostView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E588C511C8F03F6006F6E93 /* PostView.m */; };
 		3E588C561C8F0E3D006F6E93 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E588C551C8F0E3D006F6E93 /* Photo.m */; };
 		3E588C571C8F0E3D006F6E93 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E588C551C8F0E3D006F6E93 /* Photo.m */; };
+		3E588C5A1C8F2450006F6E93 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E588C591C8F2450006F6E93 /* DetailsViewController.m */; };
+		3E588C5B1C8F2450006F6E93 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E588C591C8F2450006F6E93 /* DetailsViewController.m */; };
 		3E99F9F81C8D982C001C923E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E99F9F71C8D982C001C923E /* main.m */; };
 		3E99F9FB1C8D982C001C923E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E99F9FA1C8D982C001C923E /* AppDelegate.m */; };
 		3E99FA011C8D982C001C923E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E99F9FF1C8D982C001C923E /* Main.storyboard */; };
@@ -66,6 +68,8 @@
 		3E588C511C8F03F6006F6E93 /* PostView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostView.m; path = View/PostView.m; sourceTree = "<group>"; };
 		3E588C541C8F0E3D006F6E93 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = Model/Photo.h; sourceTree = "<group>"; };
 		3E588C551C8F0E3D006F6E93 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = Model/Photo.m; sourceTree = "<group>"; };
+		3E588C581C8F2450006F6E93 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		3E588C591C8F2450006F6E93 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		3E99F9F31C8D982C001C923E /* TumblrBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TumblrBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E99F9F71C8D982C001C923E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3E99F9F91C8D982C001C923E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -159,6 +163,8 @@
 				3E99F9F61C8D982C001C923E /* Supporting Files */,
 				3E360E8C1C8DA57B0042DBA3 /* TableViewController.h */,
 				3E360E8D1C8DA57B0042DBA3 /* TableViewController.m */,
+				3E588C581C8F2450006F6E93 /* DetailsViewController.h */,
+				3E588C591C8F2450006F6E93 /* DetailsViewController.m */,
 			);
 			path = TumblrBrowser;
 			sourceTree = "<group>";
@@ -285,6 +291,7 @@
 				3E588C461C8ED538006F6E93 /* RegularPostView.m in Sources */,
 				3E588C4A1C8EDDE4006F6E93 /* QuotePostView.m in Sources */,
 				3E588C391C8EC98B006F6E93 /* Post.m in Sources */,
+				3E588C5A1C8F2450006F6E93 /* DetailsViewController.m in Sources */,
 				3E588C301C8EC8FD006F6E93 /* BasicTableViewCell.m in Sources */,
 				3E588C521C8F03F6006F6E93 /* PostView.m in Sources */,
 				3E99F9FB1C8D982C001C923E /* AppDelegate.m in Sources */,
@@ -302,6 +309,7 @@
 			files = (
 				3E588C431C8ED061006F6E93 /* PostViewFactory.m in Sources */,
 				3E588C471C8ED538006F6E93 /* RegularPostView.m in Sources */,
+				3E588C5B1C8F2450006F6E93 /* DetailsViewController.m in Sources */,
 				3E588C531C8F03F6006F6E93 /* PostView.m in Sources */,
 				3E99FA111C8D982C001C923E /* TumblrBrowserTests.m in Sources */,
 				3E588C4B1C8EDDE4006F6E93 /* QuotePostView.m in Sources */,

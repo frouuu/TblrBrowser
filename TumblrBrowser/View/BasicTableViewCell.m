@@ -24,6 +24,8 @@
 @implementation BasicTableViewCell
 
 - (void)configureWithPost:(Post*)post {
+    self.post = post;
+    
     [self addTags:post.tags];
     
     [self addContentSpecificForTypeWithPost:post];
@@ -53,11 +55,11 @@
     if (contentView == nil)
         return;
     
-    [contentView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    //[contentView setTranslatesAutoresizingMaskIntoConstraints:NO];
     
     [self.postContentView addSubview:contentView];
     
-    [self.postContentView addConstraints:[NSLayoutConstraint
+    /*[self.postContentView addConstraints:[NSLayoutConstraint
                                           constraintsWithVisualFormat:@"H:|[contentView]|"
                                           options:NSLayoutFormatDirectionLeadingToTrailing
                                           metrics:nil
@@ -66,7 +68,7 @@
                                           constraintsWithVisualFormat:@"V:|[contentView]|"
                                           options:NSLayoutFormatDirectionLeadingToTrailing
                                           metrics:nil
-                                          views:NSDictionaryOfVariableBindings(contentView)]];
+                                          views:NSDictionaryOfVariableBindings(contentView)]];*/
 }
 
 @end

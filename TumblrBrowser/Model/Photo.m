@@ -10,10 +10,11 @@
 
 @implementation Photo
 
-- (id)initWithUrl:(NSURL*)url andWidth:(NSUInteger)width {
+- (id)initWithUrls:(NSDictionary*)urls width:(NSUInteger)width height:(NSUInteger)height {
     if (self = [super init]) {
-        _url = url;
+        _urlsBySize = urls;
         _width = width;
+        _height = height;
         
         return self;
     }

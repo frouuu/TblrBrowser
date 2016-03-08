@@ -34,42 +34,30 @@
 - (NSArray*)photosWithDict:(NSDictionary*)dict {
     NSMutableArray* photos = [NSMutableArray array];
     
-    /*for (NSString *key in dict) {
-        if ([key rangeOfString:@"photo-url-"].location != NSNotFound) {
-            NSMutableString* mutableString = [NSMutableString stringWithString:key];
-            
-            [mutableString deleteCharactersInRange:NSMakeRange(0, 10)];
-        }
-    }*/
-    
     NSArray* photoset = dict[@"photos"];
     
-    NSLog(@"************************\n\n\n");
-    for (id elem in photoset) {
-        NSLog(@"%@", elem);
-    };
-    /*[dict enumerateKeysAndObjectsUsingBlock:^(NSString* key, NSString* url, BOOL *stop){
-        if ([key rangeOfString:@"photo-url-"].location != NSNotFound) {
-            NSMutableString* mutableString = [NSMutableString stringWithString:key];
+    for (NSDictionary* elem in photoset) {
+        NSMutableDictionary* urls = [NSMutableDictionary dictionary];
+        [elem enumerateKeysAndObjectsUsingBlock:^(NSString* key, id obj, BOOL *stop){
+            if ([key rangeOfString:@"photo-url-"].location != NSNotFound) {
+                NSMutableString* mutableString = [NSMutableString stringWithString:key];
             
-            [mutableString deleteCharactersInRange:NSMakeRange(0, 10)];
+                [mutableString deleteCharactersInRange:NSMakeRange(0, 10)];
             
-            Photo* photo = [[Photo alloc] initWithUrl:[NSURL URLWithString:url] andWidth:[mutableString integerValue]];
-            [photos addObject:photo];
-        }
-    }];
-    
-    NSArray *sorted = [photos sortedArrayUsingComparator:^(Photo* obj1, Photo* obj2){
-        if (obj1.width < obj2.width) {
-                return (NSComparisonResult)NSOrderedAscending;
-        } else if (obj1.width > obj2.width) {
-                return (NSComparisonResult)NSOrderedDescending;
-         }
+                NSString* urlString = elem[key];
+                NSURL* url = [NSURL URLWithString:urlString];
+                [urls setObject:url forKey:mutableString];
+            }
+        }];
         
-        return (NSComparisonResult)NSOrderedSame;
-    }];*/
+        NSNumber* widthNb = elem[@"width"];
+        NSNumber* heightNb = elem[@"height"];
+        
+        Photo* photo = [[Photo alloc] initWithUrls:urls width:[widthNb intValue] height:[heightNb intValue]];
+        [photos addObject:photo];
+    };
     
-    return nil;//sorted;
+    return photos;
 }
 
 @end

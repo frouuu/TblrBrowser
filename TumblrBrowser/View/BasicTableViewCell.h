@@ -15,6 +15,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *tagsLabel;
 @property (weak, nonatomic) IBOutlet UIView *postContentView;
+@property (strong, nonatomic) Post *post;
 
 - (void)configureWithPost:(Post*)post;
 
