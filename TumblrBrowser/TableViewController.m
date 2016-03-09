@@ -10,18 +10,25 @@
 
 #import "TextTableViewCell.h"
 #import "PhotoTableViewCell.h"
+#import "PhotoPostView.h"
 
 #import "Post.h"
+#import "Photo.h"
+
+#import "MBProgressHUD.h"
 
 
-#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 #define kBlogFormatString @"http://%@.tumblr.com/api/read/json?start=0&num=10"
 #define kDefaultBlog @"rafgraphics"
+
 
 @interface TableViewController ()
 
 - (NSURL*)blogUrlWithUser:(NSString*)userName;
-- (void)fetchedData:(NSData *)responseData;
+- (NSArray*)fetchedData:(NSData *)responseData;
+- (void)showProgressIndicator:(BOOL)on;
+- (void)showErrorAlertWithTitle:(NSString*)title message:(NSString*)msg;
+- (void)downloadImagesForPostView:(PhotoPostView*)photoPostView;
 
 @end
 
@@ -56,6 +63,7 @@
     Post* post = [self.posts objectAtIndex:indexPath.row];
     BasicTableViewCell* cell;
     
+    // photo posts
     if ([post.type isEqualToString:@"photo"]) {
         NSString* cellIdentifier = @"PhotoCell";
         
@@ -65,7 +73,13 @@
             cell = [[PhotoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                              reuseIdentifier:cellIdentifier];
         }
+        
+        if (cell.post != post) {
+            [cell configureWithPost:post];
+            [self downloadImagesForPostView:((PhotoTableViewCell*)cell).photoPostView];
+        }
     }
+    // other posts
     else {
         NSString* cellIdentifier = @"TextCell";
         
@@ -75,10 +89,10 @@
             cell = [[TextTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                              reuseIdentifier:cellIdentifier];
         }
-    }
-    
-    if (cell.post != post) {
-        [cell configureWithPost:post];
+        
+        if (cell.post != post) {
+            [cell configureWithPost:post];
+        }
     }
     
     return cell;
@@ -105,7 +119,7 @@
 }
 
 
-- (void)fetchedData:(NSData *)responseData {
+- (NSArray*)fetchedData:(NSData *)responseData {
     NSError* error;
     
     // responseData is not JSON, there is some javascript "var tumblr_api_read = " at the beginning and ";" at the end
@@ -119,25 +133,103 @@
                           options:NSJSONReadingAllowFragments
                           error:&error];
     
-    NSMutableArray* mutablePosts = [NSMutableArray array];
-    for (NSDictionary* postData in [json objectForKey:@"posts"]) {
-        [mutablePosts addObject:[[Post alloc] initWithDictionary:postData]];
-    }
-    self.posts = [mutablePosts copy];
+    if (!error) {
+        NSMutableArray* mutablePosts = [NSMutableArray array];
+        for (NSDictionary* postData in [json objectForKey:@"posts"]) {
+            Post* post = [[Post alloc] initWithDictionary:postData];
+            [mutablePosts addObject:post];
+        }
     
-    [self.tableView reloadData];
+        return mutablePosts;
+    }
+    else {
+        [self showErrorAlertWithTitle:@"Error" message:error.localizedDescription];
+        return nil;
+    }
 }
 
 
 - (void)searchBlog:(NSString*)blogName {
-    dispatch_async(kBgQueue, ^{
-        NSData* data = [NSData dataWithContentsOfURL:[self blogUrlWithUser:blogName]];
-        
-        [self performSelectorOnMainThread:@selector(fetchedData:)
-                               withObject:data
-                            waitUntilDone:YES];
-    });
+    [self showProgressIndicator:YES];
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    
+    [[session dataTaskWithURL:[self blogUrlWithUser:blogName]
+            completionHandler:^(NSData *data,
+                                NSURLResponse *response,
+                                NSError *error) {
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if (!error) {
+                        NSHTTPURLResponse *httpResp = (NSHTTPURLResponse*) response;
+                        if (httpResp.statusCode == 200) {
+                            self.posts = [self fetchedData:data];
+                            [self.tableView reloadData];
+                        }
+                        else if (httpResp.statusCode == 404) {
+                            [self showErrorAlertWithTitle:@"Error"
+                                                  message:@"User not found."];
+                        }
+                        else {
+                            [self showErrorAlertWithTitle:@"Error"
+                                                  message:@"Please try again."];
+                        }
+                    }
+                    else {
+                        // error
+                        [self showErrorAlertWithTitle:@"Error"
+                                              message:error.localizedDescription];
+                        }
+                
+                    [self showProgressIndicator:NO];
+                });
+            }] resume];
 }
 
+- (void)showProgressIndicator:(BOOL)on {
+    if (on) {
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    }
+    else {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    }
+    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = on;
+}
+
+
+- (void)showErrorAlertWithTitle:(NSString*)title message:(NSString*)msg {
+    UIAlertView *theAlert = [[UIAlertView alloc] initWithTitle:title
+                                                       message:msg
+                                                      delegate:self
+                                             cancelButtonTitle:@"OK"
+                                             otherButtonTitles:nil];
+    [theAlert show];
+}
+
+// download post images
+- (void)downloadImagesForPostView:(PhotoPostView*)photoPostView {
+    NSURLSession *session = [NSURLSession sharedSession];
+    
+    for (NSString* urlString in photoPostView.imageViewsByUrls) {
+        [[session dataTaskWithURL:[NSURL URLWithString:urlString]
+            completionHandler:^(NSData *data,
+                                NSURLResponse *response,
+                                NSError *error) {
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if (!error) {
+                        NSHTTPURLResponse *httpResp = (NSHTTPURLResponse*) response;
+                        
+                        if (httpResp.statusCode == 200) {
+                            UIImageView* imageView = [photoPostView.imageViewsByUrls objectForKey:urlString];
+                            imageView.image = [UIImage imageWithData:data];
+                        }
+                        
+                    }
+                });
+            }] resume];
+    }
+}
 
 @end

@@ -12,11 +12,13 @@
 #import "Photo.h"
 
 #define kMargin 2.0
-#define kPhotoSize @"400" // medium size photo
+#define kPhotoSize @"400"
 
 @implementation PhotoPostView
 
 - (void)configureWithPost:(Post*)post {
+    NSMutableDictionary* imgViewsMutableDict = [NSMutableDictionary dictionary];
+    
     if ([post.photos count] == 0)
         return;
     
@@ -28,17 +30,19 @@
         CGFloat width = photo.width > frameWidth ? frameWidth : photo.width;
         CGFloat height = (CGFloat)width*photo.height/photo.width;
         
-        if (width == 0 || height == 0) {
+        if (width == 0 || height == 0) { // for some photos there's no width and height in json
             width = 200.0;
             height = 200.0;
         }
         
         UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, yOffset, width, height)];
-    
-        NSURL* photoUrl = [photo.urlsBySize objectForKey:kPhotoSize];
-        NSData *imgData = [NSData dataWithContentsOfURL:photoUrl];
-        imageView.image = [UIImage imageWithData:imgData];
+        NSURL* url = [photo.urlsBySize objectForKey:kPhotoSize];
+        
+        // for downloading
+        [imgViewsMutableDict setObject:imageView forKey:[url absoluteString]];
+        
         imageView.contentMode = UIViewContentModeScaleAspectFit;
+        imageView.backgroundColor = [UIColor lightGrayColor];
         
         [self addSubview:imageView];
         
@@ -49,6 +53,8 @@
                               CGRectGetMinY(self.frame),
                               CGRectGetWidth(self.frame),
                               yOffset)];
+    
+    self.imageViewsByUrls = imgViewsMutableDict;
 }
 
 

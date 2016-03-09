@@ -32,6 +32,8 @@
     
     [self.photosView addSubview:contentView];
     
+    self.photoPostView = contentView;
+    
     // change height constraint for photosView
     CGFloat photosHeight = CGRectGetHeight(contentView.frame);
     

@@ -10,4 +10,6 @@
 
 @interface PhotoPostView : PostView
 
+@property (nonatomic, strong) NSDictionary* imageViewsByUrls;
+
 @end

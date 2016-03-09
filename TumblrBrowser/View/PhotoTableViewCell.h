@@ -10,8 +10,11 @@
 
 #import "BasicTableViewCell.h"
 
+@class PhotoPostView;
 
 @interface PhotoTableViewCell : BasicTableViewCell
+
+@property (strong, nonatomic) PhotoPostView* photoPostView;
 
 @property (weak, nonatomic) IBOutlet UIView* photosView;
 @property (weak, nonatomic) IBOutlet UILabel* captionLabel;
