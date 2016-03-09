@@ -13,8 +13,6 @@
 		3E07C9421C904D970022BBD0 /* PhotoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E07C9401C904D970022BBD0 /* PhotoTableViewCell.m */; };
 		3E360E8E1C8DA57B0042DBA3 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E360E8D1C8DA57B0042DBA3 /* TableViewController.m */; };
 		3E360E8F1C8DA57B0042DBA3 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E360E8D1C8DA57B0042DBA3 /* TableViewController.m */; };
-		3E588C1B1C8EC00B006F6E93 /* Model in Resources */ = {isa = PBXBuildFile; fileRef = 3E588C1A1C8EC00B006F6E93 /* Model */; };
-		3E588C211C8EC088006F6E93 /* View in Resources */ = {isa = PBXBuildFile; fileRef = 3E588C201C8EC088006F6E93 /* View */; };
 		3E588C301C8EC8FD006F6E93 /* BasicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E588C2F1C8EC8FD006F6E93 /* BasicTableViewCell.m */; };
 		3E588C311C8EC8FD006F6E93 /* BasicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E588C2F1C8EC8FD006F6E93 /* BasicTableViewCell.m */; };
 		3E588C391C8EC98B006F6E93 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E588C341C8EC98B006F6E93 /* Post.m */; };
@@ -50,8 +48,6 @@
 		3E07C9401C904D970022BBD0 /* PhotoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoTableViewCell.m; path = View/PhotoTableViewCell.m; sourceTree = "<group>"; };
 		3E360E8C1C8DA57B0042DBA3 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		3E360E8D1C8DA57B0042DBA3 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
-		3E588C1A1C8EC00B006F6E93 /* Model */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Model; path = "/Users/magdalenalazarecka/Documents/ios apps/TumblrBrowser/TumblrBrowser/Model"; sourceTree = "<absolute>"; };
-		3E588C201C8EC088006F6E93 /* View */ = {isa = PBXFileReference; lastKnownFileType = folder; name = View; path = "/Users/magdalenalazarecka/Documents/ios apps/TumblrBrowser/TumblrBrowser/View"; sourceTree = "<absolute>"; };
 		3E588C2E1C8EC8FD006F6E93 /* BasicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BasicTableViewCell.h; path = View/BasicTableViewCell.h; sourceTree = "<group>"; };
 		3E588C2F1C8EC8FD006F6E93 /* BasicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BasicTableViewCell.m; path = View/BasicTableViewCell.m; sourceTree = "<group>"; };
 		3E588C331C8EC98B006F6E93 /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Post.h; path = Model/Post.h; sourceTree = "<group>"; };
@@ -256,8 +252,6 @@
 			files = (
 				3E99FA061C8D982C001C923E /* LaunchScreen.storyboard in Resources */,
 				3E99FA031C8D982C001C923E /* Assets.xcassets in Resources */,
-				3E588C1B1C8EC00B006F6E93 /* Model in Resources */,
-				3E588C211C8EC088006F6E93 /* View in Resources */,
 				3E99FA011C8D982C001C923E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
