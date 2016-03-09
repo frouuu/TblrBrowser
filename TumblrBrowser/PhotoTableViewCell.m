@@ -18,18 +18,21 @@
 - (void)configureWithPost:(Post*)post {
     [super configureWithPost:post];
     
+    // some cleaning
     while ([self.photosView.subviews count] > 0) {
         [[self.photosView.subviews lastObject] removeFromSuperview];
     }
     
-    PostView* contentView = [[PhotoPostView alloc] initWithFrame:self.photosView.bounds];
-    [contentView configureWithPost:self.post];
+    // photo caption
+    self.captionLabel.text = [self stringByStrippingHTML:post.photoCaption];
     
-    if (contentView == nil)
-        return;
+    // photos
+    PhotoPostView* contentView = [[PhotoPostView alloc] initWithFrame:self.photosView.bounds];
+    [contentView configureWithPost:self.post];
     
     [self.photosView addSubview:contentView];
     
+    // change height constraint for photosView
     CGFloat photosHeight = CGRectGetHeight(contentView.frame);
     
     [self.photosView removeConstraint:self.photosHeightConstraint];
@@ -40,9 +43,8 @@
                                                                attribute:NSLayoutAttributeNotAnAttribute
                                                               multiplier:1.0
                                                                 constant:photosHeight];
+    
     [self.photosView addConstraint:self.photosHeightConstraint];
-
-    self.captionLabel.text = [self stringByStrippingHTML:post.photoCaption];
 }
 
 @end

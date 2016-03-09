@@ -13,6 +13,7 @@
 
 #define kMargin 2.0
 #define kLabelHeight 20.0
+#define kPhotoSize @"400" // medium size photo
 
 @implementation PhotoPostView
 
@@ -20,25 +21,30 @@
     if ([post.photos count] == 0)
         return;
     
-    CGFloat offset = 0.0;
+    CGFloat yOffset = 0.0;
     
     for  (Photo* photo in post.photos) {
-        NSUInteger width = photo.width > 400 ? 400 : photo.width;
-        CGFloat ratioWH = (CGFloat)photo.width/photo.height;
-        CGFloat height = width/ratioWH;
-        UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, offset, width, height)];
-    
-        NSData *imgData = [NSData dataWithContentsOfURL:[photo.urlsBySize objectForKey:@"400"]];
+        // image view size
+        CGFloat frameWidth = CGRectGetWidth(self.frame);
+        NSUInteger width = photo.width > frameWidth ? frameWidth : photo.width;
+        CGFloat height = (CGFloat)width*photo.height/photo.width;
         
+        UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, yOffset, width, height)];
+    
+        NSURL* photoUrl = [photo.urlsBySize objectForKey:kPhotoSize];
+        NSData *imgData = [NSData dataWithContentsOfURL:photoUrl];
         imageView.image = [UIImage imageWithData:imgData];
         imageView.contentMode = UIViewContentModeScaleAspectFit;
         
         [self addSubview:imageView];
         
-        offset += height + kMargin;
+        yOffset += height + kMargin;
     }
     
-    [self setFrame:CGRectMake(CGRectGetMinX(self.frame), CGRectGetMinY(self.frame), CGRectGetWidth(self.frame), offset)];
+    [self setFrame:CGRectMake(CGRectGetMinX(self.frame),
+                              CGRectGetMinY(self.frame),
+                              CGRectGetWidth(self.frame),
+                              yOffset)];
 }
 
 

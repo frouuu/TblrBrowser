@@ -8,10 +8,10 @@
 
 #import "PostView.h"
 
+
 @implementation PostView
 
 - (void)configureWithPost:(Post*)post {
-    
 }
 
 @end

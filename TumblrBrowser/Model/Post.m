@@ -16,13 +16,12 @@
     if (self = [super init]) {
         _type = dict[@"type"];
         _format = dict[@"format"];
-        _tags = [NSArray arrayWithArray:dict[@"tags"]];
+        _tags = dict[@"tags"];
         _regularBody = dict[@"regular-body"];
         _regularTitle = dict[@"regular-title"];
         _quoteText = dict[@"quote-text"];
         _quoteSource = dict[@"quote-source"];
         _photoCaption = dict[@"photo-caption"];
-        //_postId = dict[@"id"];
         _photos = [self photosWithDict:dict];
         
         return self;
@@ -37,6 +36,15 @@
     // photos from photoset
     NSArray* photoset = dict[@"photos"];
     
+    /*
+     Photo example
+     "photo-url-1280":"http:\/\/40.media.tumblr.com\/tumblr_kzjlfiTnfe1qz4rgho1_1280.jpg",
+     "photo-url-500":"http:\/\/41.media.tumblr.com\/tumblr_kzjlfiTnfe1qz4rgho1_500.jpg",
+     "photo-url-400":"http:\/\/40.media.tumblr.com\/tumblr_kzjlfiTnfe1qz4rgho1_400.jpg",
+     "photo-url-250":"http:\/\/40.media.tumblr.com\/tumblr_kzjlfiTnfe1qz4rgho1_250.jpg",
+     "photo-url-100":"http:\/\/41.media.tumblr.com\/tumblr_kzjlfiTnfe1qz4rgho1_100.jpg",
+     "photo-url-75":"http:\/\/40.media.tumblr.com\/tumblr_kzjlfiTnfe1qz4rgho1_75sq.jpg"
+     */
     for (NSDictionary* elem in photoset) {
         NSMutableDictionary* urls = [NSMutableDictionary dictionary];
         [elem enumerateKeysAndObjectsUsingBlock:^(NSString* key, id obj, BOOL *stop){
@@ -58,8 +66,8 @@
         [photos addObject:photo];
     };
     
-    if ([photoset count] == 0) {
-        // one photo
+    // one photo
+    if ([photoset count] == 0 || photoset == nil) {
         NSMutableDictionary* urls = [NSMutableDictionary dictionary];
         [dict enumerateKeysAndObjectsUsingBlock:^(NSString* key, id obj, BOOL *stop){
             if ([key rangeOfString:@"photo-url-"].location != NSNotFound) {

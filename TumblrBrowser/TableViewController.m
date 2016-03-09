@@ -8,8 +8,6 @@
 
 #import "TableViewController.h"
 
-#import "DetailsViewController.h"
-
 #import "TextTableViewCell.h"
 #import "PhotoTableViewCell.h"
 
@@ -17,8 +15,8 @@
 
 
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-#define kBlogFormatString @"http://%@.tumblr.com/api/read/json?start=0&num=5"
-
+#define kBlogFormatString @"http://%@.tumblr.com/api/read/json?start=0&num=10"
+#define kDefaultBlog @"rafgraphics"
 
 @interface TableViewController ()
 
@@ -38,7 +36,7 @@
     
     self.searchBar.delegate = self;
     
-    [self searchBlog:@"rafgraphics"];
+    [self searchBlog:kDefaultBlog];
 }
 
 
@@ -85,16 +83,6 @@
     
     return cell;
 }
-
-
-#pragma mark - Navigation
-
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-     BasicTableViewCell* cell = (BasicTableViewCell*)sender;
-     
-     DetailsViewController* detailsViewController = segue.destinationViewController;
-     detailsViewController.post = cell.post;
- }
 
 
 #pragma mark - UISearchBarDelegate
