@@ -12,7 +12,6 @@
 #import "Photo.h"
 
 #define kMargin 2.0
-#define kLabelHeight 20.0
 #define kPhotoSize @"400" // medium size photo
 
 @implementation PhotoPostView
@@ -26,8 +25,13 @@
     for  (Photo* photo in post.photos) {
         // image view size
         CGFloat frameWidth = CGRectGetWidth(self.frame);
-        NSUInteger width = photo.width > frameWidth ? frameWidth : photo.width;
+        CGFloat width = photo.width > frameWidth ? frameWidth : photo.width;
         CGFloat height = (CGFloat)width*photo.height/photo.width;
+        
+        if (width == 0 || height == 0) {
+            width = 200.0;
+            height = 200.0;
+        }
         
         UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, yOffset, width, height)];
     
