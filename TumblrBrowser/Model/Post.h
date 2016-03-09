@@ -12,7 +12,6 @@
 
 @property (nonatomic) NSUInteger postId;
 @property (nonatomic, strong) NSString* type;
-@property (nonatomic, strong) NSString* format;
 @property (nonatomic, strong) NSDate* date;
 @property (nonatomic, strong) NSArray* tags;
 @property  (nonatomic, strong) NSString* regularBody;

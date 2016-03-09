@@ -14,15 +14,14 @@
 
 - (id)initWithDictionary:(NSDictionary*)dict {
     if (self = [super init]) {
-        _type = dict[@"type"];
-        _format = dict[@"format"];
-        _tags = dict[@"tags"];
-        _regularBody = dict[@"regular-body"];
-        _regularTitle = dict[@"regular-title"];
-        _quoteText = dict[@"quote-text"];
-        _quoteSource = dict[@"quote-source"];
-        _photoCaption = dict[@"photo-caption"];
-        _photos = [self photosWithDict:dict];
+        _type = [dict[@"type"] isKindOfClass:[NSString class]] ? dict[@"type"] : @"";
+        _tags = [dict[@"tags"] isKindOfClass:[NSArray class]] ? dict[@"tags"] : nil;
+        _regularBody = [dict[@"regular-body"] isKindOfClass:[NSString class]] ? dict[@"regular-body"] : @"";
+        _regularTitle = [dict[@"regular-title"] isKindOfClass:[NSString class]] ? dict[@"regular-title"] : @"";
+        _quoteText = [dict[@"quote-text"] isKindOfClass:[NSString class]] ? dict[@"quote-text"] : @"";
+        _quoteSource = [dict[@"quote-source"] isKindOfClass:[NSString class]] ? dict[@"quote-source"] : @"";
+        _photoCaption = [dict[@"photo-caption"] isKindOfClass:[NSString class]] ? dict[@"photo-caption"] : @"";
+        _photos = [_type isEqualToString:@"photo"] ? [self photosWithDict:dict] : nil;
         
         return self;
     }
@@ -81,11 +80,13 @@
             }
         }];
     
-        NSNumber* widthNb = dict[@"width"];
-        NSNumber* heightNb = dict[@"height"];
+        if (urls) {
+            NSNumber* widthNb = dict[@"width"];
+            NSNumber* heightNb = dict[@"height"];
     
-        Photo* photo = [[Photo alloc] initWithUrls:urls width:[widthNb intValue] height:[heightNb intValue]];
-        [photos addObject:photo];
+            Photo* photo = [[Photo alloc] initWithUrls:urls width:[widthNb intValue] height:[heightNb intValue]];
+            [photos addObject:photo];
+        }
     }
     
     return photos;

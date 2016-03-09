@@ -27,7 +27,7 @@
     }
     else {
         self.titleLabel.text = post.type;
-        self.contentLabel.text = @"";
+        self.contentLabel.text = @"...";
     }
 }
 
