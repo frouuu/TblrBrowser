@@ -24,7 +24,7 @@
     
     for  (Photo* photo in post.photos) {
         NSUInteger width = photo.width > 400 ? 400 : photo.width;
-        CGFloat ratioWH = photo.width/photo.height;
+        CGFloat ratioWH = (CGFloat)photo.width/photo.height;
         CGFloat height = width/ratioWH;
         UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, offset, width, height)];
     
@@ -38,11 +38,7 @@
         offset += height + kMargin;
     }
     
-    UILabel* captionLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, offset, CGRectGetWidth(self.bounds), kLabelHeight)];
-    
-    [self addSubview:captionLabel];
-    
-    [self setFrame:CGRectMake(CGRectGetMinX(self.frame), CGRectGetMinY(self.frame), CGRectGetWidth(self.frame), offset + kLabelHeight)];
+    [self setFrame:CGRectMake(CGRectGetMinX(self.frame), CGRectGetMinY(self.frame), CGRectGetWidth(self.frame), offset)];
 }
 
 

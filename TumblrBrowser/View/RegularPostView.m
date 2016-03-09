@@ -33,19 +33,6 @@
     //CGSize sizeToFit = [textView sizeThatFits:CGSizeMake(textView.frame.size.width, MAXFLOAT)];
     
     [self addSubview:textView];
-    
-    /*[textView setTranslatesAutoresizingMaskIntoConstraints:NO];
-    
-    [self addConstraints:[NSLayoutConstraint
-                                          constraintsWithVisualFormat:@"H:|[textView]|"
-                                          options:NSLayoutFormatDirectionLeadingToTrailing
-                                          metrics:nil
-                                          views:NSDictionaryOfVariableBindings(textView)]];
-    self.heightConstraint = [NSLayoutConstraint
-                                          constraintsWithVisualFormat:@"V:|[textView(30)]|"
-                                          options:NSLayoutFormatDirectionLeadingToTrailing
-                                          metrics:nil
-                                          views:NSDictionaryOfVariableBindings(textView)];*/
 }
 
 @end

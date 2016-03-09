@@ -9,12 +9,15 @@
 #import "TableViewController.h"
 
 #import "DetailsViewController.h"
-#import "BasicTableViewCell.h"
+
+#import "TextTableViewCell.h"
+#import "PhotoTableViewCell.h"
+
 #import "Post.h"
 
 
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-#define kBlogFormatString @"http://%@.tumblr.com/api/read/json?start=0&num=10"
+#define kBlogFormatString @"http://%@.tumblr.com/api/read/json?start=0&num=5"
 
 
 @interface TableViewController ()
@@ -33,18 +36,9 @@
     self.tableView.estimatedRowHeight = 150.0;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
-    dispatch_async(kBgQueue, ^{
-        NSData* data = [NSData dataWithContentsOfURL:[self blogUrlWithUser:@"instagram"]];
-        
-        [self performSelectorOnMainThread:@selector(fetchedData:)
-                               withObject:data
-                            waitUntilDone:YES];
-    });
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    self.searchBar.delegate = self;
+    
+    [self searchBlog:@"rafgraphics"];
 }
 
 
@@ -54,29 +48,43 @@
     return 1;
 }
 
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.posts count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"BasicCell";
+    Post* post = [self.posts objectAtIndex:indexPath.row];
+    BasicTableViewCell* cell;
     
-    BasicTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    if (cell == nil) {
-        cell = [[BasicTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                      reuseIdentifier:CellIdentifier];
+    if ([post.type isEqualToString:@"photo"]) {
+        NSString* cellIdentifier = @"PhotoCell";
+        
+        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+        
+        if (cell == nil) {
+            cell = [[PhotoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                             reuseIdentifier:cellIdentifier];
+        }
+    }
+    else {
+        NSString* cellIdentifier = @"TextCell";
+        
+        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+        
+        if (cell == nil) {
+            cell = [[TextTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                             reuseIdentifier:cellIdentifier];
+        }
     }
     
-    [cell configureWithPost:(Post*)[self.posts objectAtIndex:indexPath.row]];
+    if (cell.post != post) {
+        [cell configureWithPost:post];
+    }
     
     return cell;
 }
-
-
-/*- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-}*/
 
 
 #pragma mark - Navigation
@@ -88,6 +96,18 @@
      detailsViewController.post = cell.post;
  }
 
+
+#pragma mark - UISearchBarDelegate
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    if (searchBar.text.length != 0 ) {
+        [self searchBlog:searchBar.text];
+    }
+    
+    [searchBar resignFirstResponder];
+}
+
+
 #pragma mark -
 
 - (NSURL*)blogUrlWithUser:(NSString*)userName {
@@ -95,6 +115,7 @@
     
     return [NSURL URLWithString:blogString];
 }
+
 
 - (void)fetchedData:(NSData *)responseData {
     NSError* error;
@@ -117,6 +138,17 @@
     self.posts = [mutablePosts copy];
     
     [self.tableView reloadData];
+}
+
+
+- (void)searchBlog:(NSString*)blogName {
+    dispatch_async(kBgQueue, ^{
+        NSData* data = [NSData dataWithContentsOfURL:[self blogUrlWithUser:blogName]];
+        
+        [self performSelectorOnMainThread:@selector(fetchedData:)
+                               withObject:data
+                            waitUntilDone:YES];
+    });
 }
 
 

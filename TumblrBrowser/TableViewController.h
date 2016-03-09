@@ -10,8 +10,9 @@
 
 @class Post;
 
-@interface TableViewController : UITableViewController
+@interface TableViewController : UITableViewController <UISearchBarDelegate>
 
 @property (nonatomic, strong) NSArray* posts;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end

@@ -34,6 +34,7 @@
 - (NSArray*)photosWithDict:(NSDictionary*)dict {
     NSMutableArray* photos = [NSMutableArray array];
     
+    // photos from photoset
     NSArray* photoset = dict[@"photos"];
     
     for (NSDictionary* elem in photoset) {
@@ -56,6 +57,28 @@
         Photo* photo = [[Photo alloc] initWithUrls:urls width:[widthNb intValue] height:[heightNb intValue]];
         [photos addObject:photo];
     };
+    
+    if ([photoset count] == 0) {
+        // one photo
+        NSMutableDictionary* urls = [NSMutableDictionary dictionary];
+        [dict enumerateKeysAndObjectsUsingBlock:^(NSString* key, id obj, BOOL *stop){
+            if ([key rangeOfString:@"photo-url-"].location != NSNotFound) {
+                NSMutableString* mutableString = [NSMutableString stringWithString:key];
+            
+                [mutableString deleteCharactersInRange:NSMakeRange(0, 10)];
+            
+                NSString* urlString = dict[key];
+                NSURL* url = [NSURL URLWithString:urlString];
+                [urls setObject:url forKey:mutableString];
+            }
+        }];
+    
+        NSNumber* widthNb = dict[@"width"];
+        NSNumber* heightNb = dict[@"height"];
+    
+        Photo* photo = [[Photo alloc] initWithUrls:urls width:[widthNb intValue] height:[heightNb intValue]];
+        [photos addObject:photo];
+    }
     
     return photos;
 }

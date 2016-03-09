@@ -9,14 +9,11 @@
 #import "BasicTableViewCell.h"
 
 #import "Post.h"
-#import "PostView.h"
-#import "PostViewFactory.h"
 
 
 @interface BasicTableViewCell ()
 
 - (void)addTags:(NSArray*)tags;
-- (void)addContentSpecificForTypeWithPost:(Post*)post;
 
 @end
 
@@ -27,10 +24,8 @@
     self.post = post;
     
     [self addTags:post.tags];
-    
-    [self addContentSpecificForTypeWithPost:post];
-
 }
+
 
 - (void)addTags:(NSArray*)tags {
     NSMutableString* tagsString = [NSMutableString string];
@@ -49,26 +44,13 @@
     self.tagsLabel.text = tagsString;
 }
 
-- (void)addContentSpecificForTypeWithPost:(Post*)post {
-    PostView* contentView = [PostViewFactory createViewWithFrame:self.postContentView.bounds post:post];
-    
-    if (contentView == nil)
-        return;
-    
-    //[contentView setTranslatesAutoresizingMaskIntoConstraints:NO];
-    
-    [self.postContentView addSubview:contentView];
-    
-    /*[self.postContentView addConstraints:[NSLayoutConstraint
-                                          constraintsWithVisualFormat:@"H:|[contentView]|"
-                                          options:NSLayoutFormatDirectionLeadingToTrailing
-                                          metrics:nil
-                                          views:NSDictionaryOfVariableBindings(contentView)]];
-    [self.postContentView addConstraints:[NSLayoutConstraint
-                                          constraintsWithVisualFormat:@"V:|[contentView]|"
-                                          options:NSLayoutFormatDirectionLeadingToTrailing
-                                          metrics:nil
-                                          views:NSDictionaryOfVariableBindings(contentView)]];*/
+
+-(NSString *) stringByStrippingHTML:(NSString*)s {
+    NSRange r;
+    while ((r = [s rangeOfString:@"<[^>]+>" options:NSRegularExpressionSearch]).location != NSNotFound)
+        s = [s stringByReplacingCharactersInRange:r withString:@""];
+    return s;
 }
+
 
 @end

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E07C9351C901DB70022BBD0 /* PhotoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E07C9341C901DB70022BBD0 /* PhotoTableViewCell.m */; };
+		3E07C9361C901DB70022BBD0 /* PhotoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E07C9341C901DB70022BBD0 /* PhotoTableViewCell.m */; };
+		3E07C9391C9024530022BBD0 /* TextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E07C9381C9024530022BBD0 /* TextTableViewCell.m */; };
+		3E07C93A1C9024530022BBD0 /* TextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E07C9381C9024530022BBD0 /* TextTableViewCell.m */; };
 		3E360E8E1C8DA57B0042DBA3 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E360E8D1C8DA57B0042DBA3 /* TableViewController.m */; };
 		3E360E8F1C8DA57B0042DBA3 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E360E8D1C8DA57B0042DBA3 /* TableViewController.m */; };
 		3E588C1B1C8EC00B006F6E93 /* Model in Resources */ = {isa = PBXBuildFile; fileRef = 3E588C1A1C8EC00B006F6E93 /* Model */; };
@@ -48,6 +52,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E07C9331C901DB70022BBD0 /* PhotoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoTableViewCell.h; sourceTree = "<group>"; };
+		3E07C9341C901DB70022BBD0 /* PhotoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoTableViewCell.m; sourceTree = "<group>"; };
+		3E07C9371C9024530022BBD0 /* TextTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextTableViewCell.h; path = View/TextTableViewCell.h; sourceTree = "<group>"; };
+		3E07C9381C9024530022BBD0 /* TextTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextTableViewCell.m; path = View/TextTableViewCell.m; sourceTree = "<group>"; };
 		3E360E8C1C8DA57B0042DBA3 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		3E360E8D1C8DA57B0042DBA3 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		3E588C1A1C8EC00B006F6E93 /* Model */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Model; path = "/Users/magdalenalazarecka/Documents/ios apps/TumblrBrowser/TumblrBrowser/Model"; sourceTree = "<absolute>"; };
@@ -116,6 +124,10 @@
 				3E588C4D1C8F03DA006F6E93 /* PhotoPostView.m */,
 				3E588C501C8F03F6006F6E93 /* PostView.h */,
 				3E588C511C8F03F6006F6E93 /* PostView.m */,
+				3E07C9331C901DB70022BBD0 /* PhotoTableViewCell.h */,
+				3E07C9341C901DB70022BBD0 /* PhotoTableViewCell.m */,
+				3E07C9371C9024530022BBD0 /* TextTableViewCell.h */,
+				3E07C9381C9024530022BBD0 /* TextTableViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -288,8 +300,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E07C9391C9024530022BBD0 /* TextTableViewCell.m in Sources */,
 				3E588C461C8ED538006F6E93 /* RegularPostView.m in Sources */,
 				3E588C4A1C8EDDE4006F6E93 /* QuotePostView.m in Sources */,
+				3E07C9351C901DB70022BBD0 /* PhotoTableViewCell.m in Sources */,
 				3E588C391C8EC98B006F6E93 /* Post.m in Sources */,
 				3E588C5A1C8F2450006F6E93 /* DetailsViewController.m in Sources */,
 				3E588C301C8EC8FD006F6E93 /* BasicTableViewCell.m in Sources */,
@@ -315,6 +329,8 @@
 				3E588C4B1C8EDDE4006F6E93 /* QuotePostView.m in Sources */,
 				3E588C311C8EC8FD006F6E93 /* BasicTableViewCell.m in Sources */,
 				3E588C4F1C8F03DA006F6E93 /* PhotoPostView.m in Sources */,
+				3E07C93A1C9024530022BBD0 /* TextTableViewCell.m in Sources */,
+				3E07C9361C901DB70022BBD0 /* PhotoTableViewCell.m in Sources */,
 				3E360E8F1C8DA57B0042DBA3 /* TableViewController.m in Sources */,
 				3E588C571C8F0E3D006F6E93 /* Photo.m in Sources */,
 				3E588C3A1C8EC98B006F6E93 /* Post.m in Sources */,
