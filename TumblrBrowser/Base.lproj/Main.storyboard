@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TU2-g6-RYU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TU2-g6-RYU">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -21,16 +21,17 @@
                             <textInputTraits key="textInputTraits" returnKeyType="go"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TextCell" rowHeight="140" id="p0R-QM-ou7" customClass="TextTableViewCell">
-                                <rect key="frame" x="0.0" y="72" width="600" height="140"/>
+                            <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TextCell" rowHeight="130" id="p0R-QM-ou7" customClass="TextTableViewCell">
+                                <rect key="frame" x="0.0" y="72" width="600" height="130"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="p0R-QM-ou7" id="oKi-2v-LGa">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="140"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="130"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="754" verticalHuggingPriority="754" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X4r-RE-Jce" userLabel="Title Label">
-                                            <rect key="frame" x="10" y="8" width="580" height="17"/>
+                                            <rect key="frame" x="10" y="10" width="580" height="17"/>
                                             <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="17" id="2qT-Vy-Uiq"/>
                                                 <constraint firstAttribute="height" constant="21" id="G4F-PU-Wrq"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
@@ -43,8 +44,9 @@
                                             </variation>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="751" verticalHuggingPriority="751" text="Lorem ipsum dolor" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1BP-bZ-kQg">
-                                            <rect key="frame" x="10" y="32" width="580" height="16"/>
+                                            <rect key="frame" x="10" y="34" width="580" height="35"/>
                                             <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="0bL-D4-OKO"/>
                                                 <constraint firstAttribute="height" constant="21" id="zGK-N0-mRs"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
@@ -56,8 +58,8 @@
                                                 </mask>
                                             </variation>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="Tags" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gap-BM-frv">
-                                            <rect key="frame" x="10" y="53" width="580" height="119"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" placeholderIntrinsicWidth="580" placeholderIntrinsicHeight="119" text="Tags" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gap-BM-frv">
+                                            <rect key="frame" x="10" y="74" width="580" height="53"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="cbf-qA-yeS"/>
                                             </constraints>
@@ -83,11 +85,11 @@
                                         <constraint firstItem="1BP-bZ-kQg" firstAttribute="leading" secondItem="oKi-2v-LGa" secondAttribute="leading" constant="10" id="aAH-I6-rjy"/>
                                         <constraint firstAttribute="trailing" secondItem="1BP-bZ-kQg" secondAttribute="trailing" constant="10" id="awG-Jb-Jx8"/>
                                         <constraint firstItem="gap-BM-frv" firstAttribute="top" secondItem="1BP-bZ-kQg" secondAttribute="bottom" constant="5" id="eQm-lT-pfG"/>
-                                        <constraint firstItem="gap-BM-frv" firstAttribute="bottom" secondItem="oKi-2v-LGa" secondAttribute="bottomMargin" constant="40" id="ik5-zI-OvI"/>
+                                        <constraint firstItem="gap-BM-frv" firstAttribute="bottom" secondItem="oKi-2v-LGa" secondAttribute="bottomMargin" constant="5" id="ik5-zI-OvI"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="1BP-bZ-kQg" secondAttribute="trailing" constant="8" id="phV-Tn-U2c"/>
                                         <constraint firstItem="1BP-bZ-kQg" firstAttribute="top" secondItem="oKi-2v-LGa" secondAttribute="topMargin" constant="10" id="qQt-Gb-QAW"/>
                                         <constraint firstAttribute="trailing" secondItem="X4r-RE-Jce" secondAttribute="trailing" constant="10" id="uBj-4s-CuW"/>
-                                        <constraint firstItem="X4r-RE-Jce" firstAttribute="top" secondItem="oKi-2v-LGa" secondAttribute="top" constant="8" id="x45-Up-Mh9"/>
+                                        <constraint firstItem="X4r-RE-Jce" firstAttribute="top" secondItem="oKi-2v-LGa" secondAttribute="top" constant="10" id="x45-Up-Mh9"/>
                                         <constraint firstItem="gap-BM-frv" firstAttribute="leading" secondItem="oKi-2v-LGa" secondAttribute="leading" constant="10" id="yp3-rq-oLx"/>
                                     </constraints>
                                     <variation key="default">
@@ -108,7 +110,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhotoCell" rowHeight="194" id="CsE-Fr-lxG" customClass="PhotoTableViewCell">
-                                <rect key="frame" x="0.0" y="212" width="600" height="194"/>
+                                <rect key="frame" x="0.0" y="202" width="600" height="194"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CsE-Fr-lxG" id="YBA-EB-Qqy">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="194"/>
@@ -207,7 +209,9 @@
                             <outlet property="delegate" destination="TU2-g6-RYU" id="ava-gc-oVK"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="bk1-rv-ouz"/>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="searchBar" destination="9DL-2r-WeC" id="TLJ-9z-ygd"/>
                     </connections>
