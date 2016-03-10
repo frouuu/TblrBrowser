@@ -124,6 +124,11 @@
     
     // responseData is not JSON, there is some javascript "var tumblr_api_read = " at the beginning and ";" at the end
     NSMutableString *str = [[NSMutableString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+    
+    if ([str rangeOfString:@"var tumblr_api_read = "].location == NSNotFound) {
+        return nil;
+    }
+    
     [str deleteCharactersInRange:NSMakeRange(0, 22)];
     [str deleteCharactersInRange:NSMakeRange([str length]-1, 1)];
     NSData* dataWithoutJavascript = [str dataUsingEncoding:NSUTF8StringEncoding];
