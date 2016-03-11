@@ -24,12 +24,22 @@
         
         returnValue += height + margin;
     }
+    
+    if (returnValue > margin) { // remove last margin
+        returnValue -= margin;
+    }
 
     return returnValue;
 }
 
 + (CGFloat)heightWithPhoto:(Photo*)photo forWidth:(CGFloat)width {
-    return (CGFloat)width*photo.height/photo.width;
+    if (photo.width && photo.height) {
+        return (CGFloat)width*photo.height/photo.width;
+    }
+    else if (photo.height) {
+        return (CGFloat)photo.height;
+    }
+    return width; // if there's no width and height
 }
 
 + (CGFloat)widthWithPhoto:(Photo*)photo forMaxWidth:(CGFloat)maxWidth {

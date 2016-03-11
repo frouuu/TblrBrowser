@@ -18,6 +18,5 @@
 
 @property (weak, nonatomic) IBOutlet UIView* photosPlaceholderView;
 @property (weak, nonatomic) IBOutlet UILabel* captionLabel;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *photosHeightConstraint;
 
 @end

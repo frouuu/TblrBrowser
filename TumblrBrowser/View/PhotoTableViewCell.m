@@ -16,6 +16,7 @@
 
 #define kPhotoMargin 2.0
 
+
 @implementation PhotoTableViewCell
 
 - (void)configureWithPost:(Post*)post {
@@ -37,25 +38,29 @@
     
     self.photoPostView = contentView;
     
-    CGFloat frameWidth = CGRectGetWidth(self.photosPlaceholderView.frame);
     
-    // change height constraint for photosPlaceholderView
-    CGFloat photosHeight = [TumblrHelper photosHeightWithPost:self.post
-                                                        width:frameWidth
-                                                       margin:kPhotoMargin];
+    // Autolayout constraints
+    contentView.translatesAutoresizingMaskIntoConstraints = NO;
     
-    self.photosHeightConstraint.active = NO;
+    // photo content fit width and height
+    [self.photosPlaceholderView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[contentView]|"
+                                                                 options:0 metrics:nil
+                                                                   views:NSDictionaryOfVariableBindings(contentView)]];
     
-    self.photosHeightConstraint = [NSLayoutConstraint constraintWithItem:self.photosPlaceholderView
-                                                               attribute:NSLayoutAttributeHeight
-                                                               relatedBy:NSLayoutRelationEqual
-                                                                  toItem:nil
-                                                               attribute:NSLayoutAttributeNotAnAttribute
-                                                              multiplier:1.0
-                                                                constant:photosHeight];
+    [self.photosPlaceholderView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[contentView]|"
+                                                                 options:0 metrics:nil
+                                                                   views:NSDictionaryOfVariableBindings(contentView)]];
     
-    self.photosHeightConstraint.priority = 999;
-    [self.photosPlaceholderView addConstraint:self.photosHeightConstraint];
+    CGFloat ratio = CGRectGetHeight(contentView.frame)/CGRectGetWidth(contentView.frame);
+    NSLayoutConstraint* ratioConstraint =[NSLayoutConstraint constraintWithItem:contentView
+                                                                            attribute:NSLayoutAttributeHeight
+                                                                            relatedBy:NSLayoutRelationEqual
+                                                                               toItem:contentView
+                                                                            attribute:NSLayoutAttributeWidth
+                                                                           multiplier:ratio
+                                                                             constant:0.0];
+    ratioConstraint.priority = 900;
+    [self.photosPlaceholderView addConstraint:ratioConstraint];
 }
 
 

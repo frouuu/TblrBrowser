@@ -112,18 +112,15 @@
                             <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhotoCell" rowHeight="194" id="CsE-Fr-lxG" customClass="PhotoTableViewCell">
                                 <rect key="frame" x="0.0" y="202" width="600" height="194"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CsE-Fr-lxG" id="YBA-EB-Qqy">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" verticalHuggingPriority="750" tableViewCell="CsE-Fr-lxG" id="YBA-EB-Qqy">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="194"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="753" verticalHuggingPriority="753" placeholderIntrinsicWidth="550" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="HRg-ds-VLN" userLabel="Photos Placeholder View">
+                                        <view clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" placeholderIntrinsicWidth="550" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="HRg-ds-VLN" userLabel="Photos Placeholder View">
                                             <rect key="frame" x="10" y="8" width="562" height="100"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="eOK-W7-c59"/>
-                                            </constraints>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="752" verticalHuggingPriority="752" text="Photo caption" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9xT-Wt-Ana">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="752" verticalHuggingPriority="752" ambiguous="YES" misplaced="YES" text="Photo caption" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9xT-Wt-Ana">
                                             <rect key="frame" x="10" y="118" width="580" height="17"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="M0B-d7-SSY"/>
@@ -137,7 +134,7 @@
                                                 </mask>
                                             </variation>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="Tags" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qyU-sG-PUB">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" text="Tags" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qyU-sG-PUB">
                                             <rect key="frame" x="10" y="140" width="564" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="068-4O-0lO"/>
@@ -198,7 +195,6 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="captionLabel" destination="9xT-Wt-Ana" id="tC5-r4-5nf"/>
-                                    <outlet property="photosHeightConstraint" destination="eOK-W7-c59" id="YqK-YG-vDN"/>
                                     <outlet property="photosPlaceholderView" destination="HRg-ds-VLN" id="dTA-5k-0lx"/>
                                     <outlet property="tagsLabel" destination="qyU-sG-PUB" id="94D-Xi-FNA"/>
                                 </connections>
