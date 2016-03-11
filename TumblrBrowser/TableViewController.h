@@ -13,6 +13,8 @@
 @interface TableViewController : UITableViewController <UISearchBarDelegate>
 
 @property (nonatomic, strong) NSArray* posts;
+@property (nonatomic, strong) NSString* blogName;
+
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end

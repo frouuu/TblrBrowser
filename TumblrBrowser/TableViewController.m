@@ -11,6 +11,7 @@
 #import "TextTableViewCell.h"
 #import "PhotoTableViewCell.h"
 #import "PhotoPostView.h"
+#import "TableHeaderView.h"
 
 #import "DataParser.h"
 
@@ -100,6 +101,22 @@
     return cell;
 }
 
+#pragma mark - Table view delegate
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    TableHeaderView* view = [[[NSBundle mainBundle]
+                              loadNibNamed:@"TableHeaderView"
+                              owner:self options:nil] firstObject];
+    
+    view.titleLabel.text = self.blogName;
+    
+    return view;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 56.0;
+}
+
 
 #pragma mark - UISearchBarDelegate
 
@@ -149,8 +166,10 @@
                 dispatch_async(dispatch_get_main_queue(), ^{
                     if (!error) {
                         NSHTTPURLResponse *httpResp = (NSHTTPURLResponse*) response;
+                        
                         if (httpResp.statusCode == 200) {
                             self.posts = [self fetchedData:data];
+                            self.blogName = blogName;
                             [self.tableView reloadData];
                         }
                         else if (httpResp.statusCode == 404) {
