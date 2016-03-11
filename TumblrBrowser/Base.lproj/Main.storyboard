@@ -116,7 +116,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="194"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="753" verticalHuggingPriority="753" placeholderIntrinsicWidth="550" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="HRg-ds-VLN" userLabel="Photos View">
+                                        <view clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="753" verticalHuggingPriority="753" placeholderIntrinsicWidth="550" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="HRg-ds-VLN" userLabel="Photos Placeholder View">
                                             <rect key="frame" x="10" y="8" width="562" height="100"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
@@ -199,7 +199,7 @@
                                 <connections>
                                     <outlet property="captionLabel" destination="9xT-Wt-Ana" id="tC5-r4-5nf"/>
                                     <outlet property="photosHeightConstraint" destination="eOK-W7-c59" id="YqK-YG-vDN"/>
-                                    <outlet property="photosView" destination="HRg-ds-VLN" id="YcA-Rm-aep"/>
+                                    <outlet property="photosPlaceholderView" destination="HRg-ds-VLN" id="dTA-5k-0lx"/>
                                     <outlet property="tagsLabel" destination="qyU-sG-PUB" id="94D-Xi-FNA"/>
                                 </connections>
                             </tableViewCell>

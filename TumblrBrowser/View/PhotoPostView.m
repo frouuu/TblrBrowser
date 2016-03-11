@@ -11,12 +11,13 @@
 #import "Post.h"
 #import "Photo.h"
 
-#define kMargin 2.0
+#import "TumblrHelper.h"
+
 #define kPhotoSize @"400"
 
 @implementation PhotoPostView
 
-- (void)configureWithPost:(Post*)post {
+- (void)configureWithPost:(Post*)post margins:(CGFloat)margin {
     NSMutableDictionary* imgViewsMutableDict = [NSMutableDictionary dictionary];
     
     if ([post.photos count] == 0)
@@ -27,14 +28,9 @@
     for  (Photo* photo in post.photos) {
         // image view size
         CGFloat frameWidth = CGRectGetWidth(self.frame);
-        CGFloat width = photo.width > frameWidth ? frameWidth : photo.width;
-        CGFloat height = (CGFloat)width*photo.height/photo.width;
-        
-        if (width == 0 || height == 0) { // for some photos there's no width and height in json
-            width = 200.0;
-            height = 200.0;
-        }
-        
+        CGFloat width = [TumblrHelper widthWithPhoto:photo forMaxWidth:frameWidth];
+        CGFloat height = [TumblrHelper heightWithPhoto:photo forWidth:width];
+                
         UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, yOffset, width, height)];
         NSURL* url = [photo.urlsBySize objectForKey:kPhotoSize];
         
@@ -45,7 +41,7 @@
         
         [self addSubview:imageView];
         
-        yOffset += height + kMargin;
+        yOffset += height + margin;
     }
     
     [self setFrame:CGRectMake(CGRectGetMinX(self.frame),
@@ -55,6 +51,5 @@
     
     self.imageViewsByUrls = imgViewsMutableDict;
 }
-
 
 @end

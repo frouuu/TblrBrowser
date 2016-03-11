@@ -12,6 +12,9 @@
 #import "PostView.h"
 #import "PhotoPostView.h"
 
+#import "TumblrHelper.h"
+
+#define kPhotoMargin 2.0
 
 @implementation PhotoTableViewCell
 
@@ -19,26 +22,31 @@
     [super configureWithPost:post];
     
     // some cleaning
-    while ([self.photosView.subviews count] > 0) {
-        [[self.photosView.subviews lastObject] removeFromSuperview];
+    while ([self.photosPlaceholderView.subviews count] > 0) {
+        [[self.photosPlaceholderView.subviews lastObject] removeFromSuperview];
     }
     
     // photo caption
     self.captionLabel.text = [self stringByStrippingHTML:post.photoCaption];
     
     // photos
-    PhotoPostView* contentView = [[PhotoPostView alloc] initWithFrame:self.photosView.bounds];
-    [contentView configureWithPost:self.post];
+    PhotoPostView* contentView = [[PhotoPostView alloc] initWithFrame:self.photosPlaceholderView.bounds];
+    [contentView configureWithPost:self.post margins:kPhotoMargin];
     
-    [self.photosView addSubview:contentView];
+    [self.photosPlaceholderView addSubview:contentView];
     
     self.photoPostView = contentView;
     
-    // change height constraint for photosView
-    CGFloat photosHeight = CGRectGetHeight(contentView.frame);
+    CGFloat frameWidth = CGRectGetWidth(self.photosPlaceholderView.frame);
     
-    [self.photosView removeConstraint:self.photosHeightConstraint];
-    self.photosHeightConstraint = [NSLayoutConstraint constraintWithItem:self.photosView
+    // change height constraint for photosPlaceholderView
+    CGFloat photosHeight = [TumblrHelper photosHeightWithPost:self.post
+                                                        width:frameWidth
+                                                       margin:kPhotoMargin];
+    
+    self.photosHeightConstraint.active = NO;
+    
+    self.photosHeightConstraint = [NSLayoutConstraint constraintWithItem:self.photosPlaceholderView
                                                                attribute:NSLayoutAttributeHeight
                                                                relatedBy:NSLayoutRelationEqual
                                                                   toItem:nil
@@ -46,7 +54,9 @@
                                                               multiplier:1.0
                                                                 constant:photosHeight];
     
-    [self.photosView addConstraint:self.photosHeightConstraint];
+    self.photosHeightConstraint.priority = 999;
+    [self.photosPlaceholderView addConstraint:self.photosHeightConstraint];
 }
+
 
 @end

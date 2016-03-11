@@ -23,6 +23,8 @@
 
 #define kBlogFormatString @"http://%@.tumblr.com/api/read/json?start=0&num=10"
 #define kDefaultBlog @"rafgraphics"
+#define kEstimatedRowHeight 150.0
+#define kHeaderHeight 56.0
 
 
 @interface TableViewController ()
@@ -41,12 +43,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.estimatedRowHeight = 150.0;
+    self.tableView.estimatedRowHeight = kEstimatedRowHeight;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
     self.searchBar.delegate = self;
-    
-    [self searchBlog:kDefaultBlog];
+}
+
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+
+    if (!self.blogName) {
+        [self searchBlog:kDefaultBlog];
+    }
 }
 
 
@@ -114,7 +123,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 56.0;
+    return kHeaderHeight;
 }
 
 
@@ -128,6 +137,9 @@
     [searchBar resignFirstResponder];
 }
 
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    searchBar.text = @"";
+}
 
 #pragma mark -
 
@@ -233,7 +245,6 @@
                             UIImageView* imageView = [photoPostView.imageViewsByUrls objectForKey:urlString];
                             imageView.image = [UIImage imageWithData:data];
                         }
-                        
                     }
                 });
             }] resume];

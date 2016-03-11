@@ -21,8 +21,6 @@
 		3E588C3A1C8EC98B006F6E93 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E588C341C8EC98B006F6E93 /* Post.m */; };
 		3E588C4E1C8F03DA006F6E93 /* PhotoPostView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E588C4D1C8F03DA006F6E93 /* PhotoPostView.m */; };
 		3E588C4F1C8F03DA006F6E93 /* PhotoPostView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E588C4D1C8F03DA006F6E93 /* PhotoPostView.m */; };
-		3E588C521C8F03F6006F6E93 /* PostView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E588C511C8F03F6006F6E93 /* PostView.m */; };
-		3E588C531C8F03F6006F6E93 /* PostView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E588C511C8F03F6006F6E93 /* PostView.m */; };
 		3E588C561C8F0E3D006F6E93 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E588C551C8F0E3D006F6E93 /* Photo.m */; };
 		3E588C571C8F0E3D006F6E93 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E588C551C8F0E3D006F6E93 /* Photo.m */; };
 		3E99F9F81C8D982C001C923E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E99F9F71C8D982C001C923E /* main.m */; };
@@ -35,6 +33,8 @@
 		3ED8F1C21C92BC4400E4956A /* DataParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED8F1C01C92BC4400E4956A /* DataParser.m */; };
 		3ED8F1C41C92C88B00E4956A /* TableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3ED8F1C31C92C88B00E4956A /* TableHeaderView.xib */; };
 		3ED8F1C71C92C8B000E4956A /* TableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED8F1C61C92C8B000E4956A /* TableHeaderView.m */; };
+		3ED8F1CA1C92DC4800E4956A /* TumblrHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED8F1C91C92DC4800E4956A /* TumblrHelper.m */; };
+		3ED8F1CB1C92DC4800E4956A /* TumblrHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED8F1C91C92DC4800E4956A /* TumblrHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,8 +62,6 @@
 		3E588C341C8EC98B006F6E93 /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Post.m; path = Model/Post.m; sourceTree = "<group>"; };
 		3E588C4C1C8F03DA006F6E93 /* PhotoPostView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoPostView.h; path = View/PhotoPostView.h; sourceTree = "<group>"; };
 		3E588C4D1C8F03DA006F6E93 /* PhotoPostView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoPostView.m; path = View/PhotoPostView.m; sourceTree = "<group>"; };
-		3E588C501C8F03F6006F6E93 /* PostView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostView.h; path = View/PostView.h; sourceTree = "<group>"; };
-		3E588C511C8F03F6006F6E93 /* PostView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostView.m; path = View/PostView.m; sourceTree = "<group>"; };
 		3E588C541C8F0E3D006F6E93 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = Model/Photo.h; sourceTree = "<group>"; };
 		3E588C551C8F0E3D006F6E93 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = Model/Photo.m; sourceTree = "<group>"; };
 		3E99F9F31C8D982C001C923E /* TumblrBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TumblrBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +80,8 @@
 		3ED8F1C31C92C88B00E4956A /* TableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TableHeaderView.xib; path = View/TableHeaderView.xib; sourceTree = "<group>"; };
 		3ED8F1C51C92C8B000E4956A /* TableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableHeaderView.h; path = View/TableHeaderView.h; sourceTree = "<group>"; };
 		3ED8F1C61C92C8B000E4956A /* TableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableHeaderView.m; path = View/TableHeaderView.m; sourceTree = "<group>"; };
+		3ED8F1C81C92DC4800E4956A /* TumblrHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TumblrHelper.h; sourceTree = "<group>"; };
+		3ED8F1C91C92DC4800E4956A /* TumblrHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TumblrHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,8 +113,6 @@
 				3E588C2F1C8EC8FD006F6E93 /* BasicTableViewCell.m */,
 				3E588C4C1C8F03DA006F6E93 /* PhotoPostView.h */,
 				3E588C4D1C8F03DA006F6E93 /* PhotoPostView.m */,
-				3E588C501C8F03F6006F6E93 /* PostView.h */,
-				3E588C511C8F03F6006F6E93 /* PostView.m */,
 				3E07C9371C9024530022BBD0 /* TextTableViewCell.h */,
 				3E07C9381C9024530022BBD0 /* TextTableViewCell.m */,
 				3ED8F1C31C92C88B00E4956A /* TableHeaderView.xib */,
@@ -169,6 +167,8 @@
 				3E360E8D1C8DA57B0042DBA3 /* TableViewController.m */,
 				3ED8F1BF1C92BC4400E4956A /* DataParser.h */,
 				3ED8F1C01C92BC4400E4956A /* DataParser.m */,
+				3ED8F1C81C92DC4800E4956A /* TumblrHelper.h */,
+				3ED8F1C91C92DC4800E4956A /* TumblrHelper.m */,
 			);
 			path = TumblrBrowser;
 			sourceTree = "<group>";
@@ -296,12 +296,12 @@
 				3E588C391C8EC98B006F6E93 /* Post.m in Sources */,
 				3E588C301C8EC8FD006F6E93 /* BasicTableViewCell.m in Sources */,
 				3E07C9451C905EF80022BBD0 /* MBProgressHUD.m in Sources */,
-				3E588C521C8F03F6006F6E93 /* PostView.m in Sources */,
 				3E99F9FB1C8D982C001C923E /* AppDelegate.m in Sources */,
 				3E99F9F81C8D982C001C923E /* main.m in Sources */,
 				3E588C561C8F0E3D006F6E93 /* Photo.m in Sources */,
 				3ED8F1C71C92C8B000E4956A /* TableHeaderView.m in Sources */,
 				3E588C4E1C8F03DA006F6E93 /* PhotoPostView.m in Sources */,
+				3ED8F1CA1C92DC4800E4956A /* TumblrHelper.m in Sources */,
 				3ED8F1C11C92BC4400E4956A /* DataParser.m in Sources */,
 				3E360E8E1C8DA57B0042DBA3 /* TableViewController.m in Sources */,
 			);
@@ -312,12 +312,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3ED8F1C21C92BC4400E4956A /* DataParser.m in Sources */,
-				3E588C531C8F03F6006F6E93 /* PostView.m in Sources */,
 				3E99FA111C8D982C001C923E /* TumblrBrowserTests.m in Sources */,
 				3E588C311C8EC8FD006F6E93 /* BasicTableViewCell.m in Sources */,
 				3E588C4F1C8F03DA006F6E93 /* PhotoPostView.m in Sources */,
 				3E07C93A1C9024530022BBD0 /* TextTableViewCell.m in Sources */,
 				3E07C9421C904D970022BBD0 /* PhotoTableViewCell.m in Sources */,
+				3ED8F1CB1C92DC4800E4956A /* TumblrHelper.m in Sources */,
 				3E360E8F1C8DA57B0042DBA3 /* TableViewController.m in Sources */,
 				3E07C9461C905EF80022BBD0 /* MBProgressHUD.m in Sources */,
 				3E588C571C8F0E3D006F6E93 /* Photo.m in Sources */,

@@ -8,8 +8,10 @@
 
 #import "PostView.h"
 
-@interface PhotoPostView : PostView
+@interface PhotoPostView : UIView
 
 @property (nonatomic, strong) NSDictionary* imageViewsByUrls;
+
+- (void)configureWithPost:(Post*)post margins:(CGFloat)margin;
 
 @end
