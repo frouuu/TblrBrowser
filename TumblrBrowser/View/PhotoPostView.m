@@ -42,7 +42,6 @@
         [imgViewsMutableDict setObject:imageView forKey:[url absoluteString]];
         
         imageView.contentMode = UIViewContentModeScaleAspectFit;
-        imageView.backgroundColor = [UIColor lightGrayColor];
         
         [self addSubview:imageView];
         
