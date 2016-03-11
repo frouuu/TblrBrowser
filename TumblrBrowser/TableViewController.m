@@ -12,6 +12,8 @@
 #import "PhotoTableViewCell.h"
 #import "PhotoPostView.h"
 
+#import "DataParser.h"
+
 #import "Post.h"
 #import "Photo.h"
 
@@ -120,36 +122,16 @@
 
 
 - (NSArray*)fetchedData:(NSData *)responseData {
-    NSError* error;
+    NSError* error = nil;
     
-    // responseData is not JSON, there is some javascript "var tumblr_api_read = " at the beginning and ";" at the end
-    NSMutableString *str = [[NSMutableString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+    NSArray* postArray = [DataParser postArrayWithData:responseData error:&error];
     
-    if ([str rangeOfString:@"var tumblr_api_read = "].location == NSNotFound) {
-        return nil;
-    }
-    
-    [str deleteCharactersInRange:NSMakeRange(0, 22)];
-    [str deleteCharactersInRange:NSMakeRange([str length]-1, 1)];
-    NSData* dataWithoutJavascript = [str dataUsingEncoding:NSUTF8StringEncoding];
-    
-    NSDictionary* json = [NSJSONSerialization
-                          JSONObjectWithData:dataWithoutJavascript
-                          options:NSJSONReadingAllowFragments
-                          error:&error];
-    
-    if (!error) {
-        NSMutableArray* mutablePosts = [NSMutableArray array];
-        for (NSDictionary* postData in [json objectForKey:@"posts"]) {
-            Post* post = [[Post alloc] initWithDictionary:postData];
-            [mutablePosts addObject:post];
-        }
-    
-        return mutablePosts;
-    }
-    else {
+    if (error) {
         [self showErrorAlertWithTitle:@"Error" message:error.localizedDescription];
         return nil;
+    }
+    else {
+        return postArray;
     }
 }
 
@@ -191,6 +173,7 @@
             }] resume];
 }
 
+
 - (void)showProgressIndicator:(BOOL)on {
     if (on) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -211,6 +194,7 @@
                                              otherButtonTitles:nil];
     [theAlert show];
 }
+
 
 // download post images
 - (void)downloadImagesForPostView:(PhotoPostView*)photoPostView {

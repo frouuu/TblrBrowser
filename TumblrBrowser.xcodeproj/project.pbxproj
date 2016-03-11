@@ -31,6 +31,8 @@
 		3E99FA031C8D982C001C923E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E99FA021C8D982C001C923E /* Assets.xcassets */; };
 		3E99FA061C8D982C001C923E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E99FA041C8D982C001C923E /* LaunchScreen.storyboard */; };
 		3E99FA111C8D982C001C923E /* TumblrBrowserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E99FA101C8D982C001C923E /* TumblrBrowserTests.m */; };
+		3ED8F1C11C92BC4400E4956A /* DataParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED8F1C01C92BC4400E4956A /* DataParser.m */; };
+		3ED8F1C21C92BC4400E4956A /* DataParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED8F1C01C92BC4400E4956A /* DataParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		3E99FA0C1C8D982C001C923E /* TumblrBrowserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TumblrBrowserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E99FA101C8D982C001C923E /* TumblrBrowserTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TumblrBrowserTests.m; sourceTree = "<group>"; };
 		3E99FA121C8D982C001C923E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3ED8F1BF1C92BC4400E4956A /* DataParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataParser.h; sourceTree = "<group>"; };
+		3ED8F1C01C92BC4400E4956A /* DataParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataParser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +159,8 @@
 				3E99F9F61C8D982C001C923E /* Supporting Files */,
 				3E360E8C1C8DA57B0042DBA3 /* TableViewController.h */,
 				3E360E8D1C8DA57B0042DBA3 /* TableViewController.m */,
+				3ED8F1BF1C92BC4400E4956A /* DataParser.h */,
+				3ED8F1C01C92BC4400E4956A /* DataParser.m */,
 			);
 			path = TumblrBrowser;
 			sourceTree = "<group>";
@@ -286,6 +292,7 @@
 				3E99F9F81C8D982C001C923E /* main.m in Sources */,
 				3E588C561C8F0E3D006F6E93 /* Photo.m in Sources */,
 				3E588C4E1C8F03DA006F6E93 /* PhotoPostView.m in Sources */,
+				3ED8F1C11C92BC4400E4956A /* DataParser.m in Sources */,
 				3E360E8E1C8DA57B0042DBA3 /* TableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,6 +301,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ED8F1C21C92BC4400E4956A /* DataParser.m in Sources */,
 				3E588C531C8F03F6006F6E93 /* PostView.m in Sources */,
 				3E99FA111C8D982C001C923E /* TumblrBrowserTests.m in Sources */,
 				3E588C311C8EC8FD006F6E93 /* BasicTableViewCell.m in Sources */,
