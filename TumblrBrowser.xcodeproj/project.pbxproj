@@ -8,19 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		3E07C9391C9024530022BBD0 /* TextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E07C9381C9024530022BBD0 /* TextTableViewCell.m */; };
-		3E07C93A1C9024530022BBD0 /* TextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E07C9381C9024530022BBD0 /* TextTableViewCell.m */; };
 		3E07C9411C904D970022BBD0 /* PhotoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E07C9401C904D970022BBD0 /* PhotoTableViewCell.m */; };
-		3E07C9421C904D970022BBD0 /* PhotoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E07C9401C904D970022BBD0 /* PhotoTableViewCell.m */; };
 		3E07C9451C905EF80022BBD0 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E07C9441C905EF80022BBD0 /* MBProgressHUD.m */; };
-		3E07C9461C905EF80022BBD0 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E07C9441C905EF80022BBD0 /* MBProgressHUD.m */; };
 		3E360E8E1C8DA57B0042DBA3 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E360E8D1C8DA57B0042DBA3 /* TableViewController.m */; };
-		3E360E8F1C8DA57B0042DBA3 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E360E8D1C8DA57B0042DBA3 /* TableViewController.m */; };
 		3E588C301C8EC8FD006F6E93 /* BasicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E588C2F1C8EC8FD006F6E93 /* BasicTableViewCell.m */; };
-		3E588C311C8EC8FD006F6E93 /* BasicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E588C2F1C8EC8FD006F6E93 /* BasicTableViewCell.m */; };
 		3E588C391C8EC98B006F6E93 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E588C341C8EC98B006F6E93 /* Post.m */; };
 		3E588C3A1C8EC98B006F6E93 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E588C341C8EC98B006F6E93 /* Post.m */; };
 		3E588C4E1C8F03DA006F6E93 /* PhotoPostView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E588C4D1C8F03DA006F6E93 /* PhotoPostView.m */; };
-		3E588C4F1C8F03DA006F6E93 /* PhotoPostView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E588C4D1C8F03DA006F6E93 /* PhotoPostView.m */; };
 		3E588C561C8F0E3D006F6E93 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E588C551C8F0E3D006F6E93 /* Photo.m */; };
 		3E588C571C8F0E3D006F6E93 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E588C551C8F0E3D006F6E93 /* Photo.m */; };
 		3E99F9F81C8D982C001C923E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E99F9F71C8D982C001C923E /* main.m */; };
@@ -313,13 +307,7 @@
 			files = (
 				3ED8F1C21C92BC4400E4956A /* DataParser.m in Sources */,
 				3E99FA111C8D982C001C923E /* TumblrBrowserTests.m in Sources */,
-				3E588C311C8EC8FD006F6E93 /* BasicTableViewCell.m in Sources */,
-				3E588C4F1C8F03DA006F6E93 /* PhotoPostView.m in Sources */,
-				3E07C93A1C9024530022BBD0 /* TextTableViewCell.m in Sources */,
-				3E07C9421C904D970022BBD0 /* PhotoTableViewCell.m in Sources */,
 				3ED8F1CB1C92DC4800E4956A /* TumblrHelper.m in Sources */,
-				3E360E8F1C8DA57B0042DBA3 /* TableViewController.m in Sources */,
-				3E07C9461C905EF80022BBD0 /* MBProgressHUD.m in Sources */,
 				3E588C571C8F0E3D006F6E93 /* Photo.m in Sources */,
 				3E588C3A1C8EC98B006F6E93 /* Post.m in Sources */,
 			);
