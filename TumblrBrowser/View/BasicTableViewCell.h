@@ -17,6 +17,5 @@
 @property (strong, nonatomic) Post *post;
 
 - (void)configureWithPost:(Post*)post;
--(NSString *) stringByStrippingHTML:(NSString*)s;
 
 @end

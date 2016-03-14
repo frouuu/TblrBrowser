@@ -28,7 +28,9 @@
     }
     
     // photo caption
-    self.captionLabel.text = [self stringByStrippingHTML:post.photoCaption];
+    NSString* caption = [TumblrHelper stringByStrippingHTML:post.photoCaption];
+    caption = [TumblrHelper replaceHtmlEntities:caption];
+    self.captionLabel.text = caption;
     
     // photos
     PhotoPostView* contentView = [[PhotoPostView alloc] initWithFrame:self.photosPlaceholderView.bounds];

@@ -10,6 +10,8 @@
 
 #import "Post.h"
 
+#import "TumblrHelper.h"
+
 @implementation TextTableViewCell
 
 - (void)configureWithPost:(Post*)post {
@@ -17,13 +19,26 @@
     
     // post with title and text
     if ([post.type isEqualToString:@"regular"]) {
-        self.contentLabel.text = [self stringByStrippingHTML:post.regularBody];
-        self.titleLabel.text = [self stringByStrippingHTML:post.regularTitle];
+        NSString* body = [TumblrHelper stringByStrippingHTML:post.regularBody];
+        body = [TumblrHelper replaceHtmlEntities:body];
+        
+        self.contentLabel.text = body;
+        
+        NSString* title = [TumblrHelper stringByStrippingHTML:post.regularTitle];
+        title = [TumblrHelper replaceHtmlEntities:title];
+        
+        self.titleLabel.text = title;
     }
     // quote with text and source
     else if ([post.type isEqualToString:@"quote"]) {
-        self.contentLabel.text = [self stringByStrippingHTML:post.quoteSource];
-        self.titleLabel.text = [self stringByStrippingHTML:post.quoteText];
+        NSString* text = [TumblrHelper stringByStrippingHTML:post.quoteText];
+        text = [TumblrHelper replaceHtmlEntities:text];
+        
+        self.titleLabel.text = text;
+        
+        NSString* source = [TumblrHelper stringByStrippingHTML:post.quoteSource];
+        source = [TumblrHelper replaceHtmlEntities:source];
+        self.contentLabel.text = source;
     }
     else {
         self.titleLabel.text = post.type;

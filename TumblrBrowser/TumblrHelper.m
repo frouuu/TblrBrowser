@@ -39,6 +39,7 @@
     else if (photo.height) {
         return (CGFloat)photo.height;
     }
+    
     return width; // if there's no width and height
 }
 
@@ -46,6 +47,25 @@
     CGFloat photoWidth = photo.width ? photo.width : 200.0; // for some photos there's no width and height in json
     
     return photoWidth > maxWidth ? maxWidth : photoWidth;
+}
+
++ (NSString*)replaceHtmlEntities:(NSString*)str {
+    str  = [str stringByReplacingOccurrencesOfString:@"&ndash;" withString:@"-"];
+    str  = [str stringByReplacingOccurrencesOfString:@"&rdquo;" withString:@"\""];
+    str  = [str stringByReplacingOccurrencesOfString:@"&ldquo;" withString:@"\""];
+    str  = [str stringByReplacingOccurrencesOfString:@"&oacute;" withString:@"o"];
+    str  = [str stringByReplacingOccurrencesOfString:@"&#039;" withString:@"'"];
+    
+    return str;
+}
+
++ (NSString *)stringByStrippingHTML:(NSString*)s {
+    NSRange range;
+    
+    while ((range = [s rangeOfString:@"<[^>]+>" options:NSRegularExpressionSearch]).location != NSNotFound)
+        s = [s stringByReplacingCharactersInRange:range withString:@""];
+    
+    return s;
 }
 
 @end

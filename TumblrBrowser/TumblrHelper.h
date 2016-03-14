@@ -19,4 +19,7 @@
 + (CGFloat)heightWithPhoto:(Photo*)photo forWidth:(CGFloat)width;
 + (CGFloat)widthWithPhoto:(Photo*)photo forMaxWidth:(CGFloat)maxWidth;
 
++ (NSString*)replaceHtmlEntities:(NSString*)str;
++ (NSString *)stringByStrippingHTML:(NSString*)s;
+
 @end
